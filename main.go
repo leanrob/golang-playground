@@ -14,8 +14,13 @@ func main() {
 
 	 //OneRunAll();
 
-	TwoRunAll()
+	//TwoRunAll()
 
+	branching()
+
+	loops()
+
+	switches()
 
 }
 
