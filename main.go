@@ -12,15 +12,9 @@ const (
 
 func main() {
 
-	 //OneRunAll();
+	 OneRunAll();
 
-	//TwoRunAll()
-
-	branching()
-
-	loops()
-
-	switches()
+	TwoRunAll()
 
 }
 
