@@ -12,11 +12,65 @@ const (
 
 func main() {
 
-	 OneRunAll();
+	// OneRunAll()
+	//
+	//TwoRunAll()
 
-	TwoRunAll()
+	pointersExample()
+
+	variaticFunction("Hello", "there", "from", "Rob")
+
+	sumTotal := add(1, 4, 7, 4, 42)
+	println(sumTotal)
+
+	numTerms, sum := addDoubleReturn(1, 4, 7, 4, 42)
+
+	println("Added:", numTerms, "Result:", sum)
+
 
 }
+
+
+func addDoubleReturn(terms ...int) (numTerms int, sum int) {
+	for _, term := range terms {
+		sum += term
+	}
+	numTerms = len(terms)
+	return
+}
+
+func add(terms ...int) int {
+	result := 0
+	for _, term := range terms {
+		result += term
+	}
+	return result
+}
+
+// Pass in as many paraneters as we need ot a function
+func variaticFunction(messages ...string) {
+	for _, message := range messages {
+		println(message)
+	}
+}
+
+func pointersExample() {
+	message := "Hello"
+
+	saySomething(&message)
+}
+
+func saySomething(message *string) {
+	println(*message)
+
+	*message = "Hello Go"
+
+	println(*message)
+}
+
+
+// Start of Part 2 Logic
+
 
 func TwoRunAll() {
 
