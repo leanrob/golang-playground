@@ -16,5 +16,10 @@ type Address struct {
 	State string `json:"state,omitempty"`
 }
 
-var people []Person
+// Create 3 people for start of API
+var people = []Person{
+	Person{ID: "1", Firstname: "Rob", Lastname: "B", Address: &Address{City: "City X", State: "State X"}},
+	Person{ID: "2", Firstname: "Kelly", Lastname: "G", Address: &Address{City: "City Z", State: "State Y"}},
+	Person{ID: "3", Firstname: "Jim", Lastname: "T", Address: &Address{City: "City Z", State: "State Y"}},
+}
 
