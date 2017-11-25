@@ -4,6 +4,8 @@ import (
 	"github.com/gorilla/mux"
 	"log"
 	"net/http"
+	"github.com/gorilla/handlers"
+	"os"
 )
 
 // main function to boot up everything
@@ -25,5 +27,7 @@ func main() {
 	router.HandleFunc("/people/{id}", CreatePerson).Methods("POST")
 	router.HandleFunc("/people/{id}", DeletePerson).Methods("DELETE")
 
-	log.Fatal(http.ListenAndServe(":8000", router))
+	// Middleware to wrap our router in a log so the logger is called first every time
+	loggedRouter := handlers.LoggingHandler(os.Stdout, router)
+	log.Fatal(http.ListenAndServe(":8000", loggedRouter))
 }
