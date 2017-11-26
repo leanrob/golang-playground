@@ -1,9 +1,9 @@
 package main
 
 import (
-    "encoding/json"
-    "net/http"
-    "github.com/gorilla/mux"
+	"encoding/json"
+	"github.com/gorilla/mux"
+	"net/http"
 )
 
 func GetPeople(w http.ResponseWriter, r *http.Request) {
@@ -28,8 +28,20 @@ func CreatePerson(w http.ResponseWriter, r *http.Request) {
 	var person Person
 	_ = json.NewDecoder(r.Body).Decode(&person)
 	person.ID = params["id"]
-	people = append(people, person)
+	addPersonIfNotExisting(person.ID, person)
 	json.NewEncoder(w).Encode(people)
+}
+
+func addPersonIfNotExisting(i string, p Person) {
+	var exists = false
+	for _, item := range people {
+		if item.ID == i {
+			exists = true
+		}
+	}
+	if !exists {
+		people = append(people, p)
+	}
 }
 
 // Delete an item
