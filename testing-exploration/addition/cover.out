@@ -1,0 +1,6 @@
+mode: set
+addition/math.go:3.27,6.20 2 1
+addition/math.go:11.2,11.25 1 1
+addition/math.go:14.2,14.14 1 1
+addition/math.go:6.20,9.3 2 0
+addition/math.go:11.25,13.3 1 1
