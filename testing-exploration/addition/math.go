@@ -1,5 +1,9 @@
 package addition
 
-func Add(i, j int) int {
-	return i + j
+func Add(nums ...int) int {
+	var total int
+	for _, i := range nums {
+		total += i
+	}
+	return total
 }

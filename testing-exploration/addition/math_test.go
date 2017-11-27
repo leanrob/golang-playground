@@ -11,4 +11,10 @@ func TestCanAddNumbers(t *testing.T) {
 		t.Log("Failed to add numbers")
 		t.Fail()
 	}
+
+	result = Add(1, 2, 3, 4)
+
+	if result != 10 {
+		t.Error("Cannot add more than 2 numbers")
+	}
 }
